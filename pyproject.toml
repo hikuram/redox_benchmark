@@ -10,18 +10,21 @@ requires-python = ">=3.9"
 
 dependencies = [
     "ase>=3.26.0",
-    "rdkit-pypi>=2024.02.1",
-    "gpu4pyscf>=0.5.0",
-]
-
-[project.optional-dependencies]
-optional = [
-    "mace-torch>=0.3.0",
-    "fairchem>=0.1.0",
+    "cupy-cuda12x==13.4.1",
+    "cutensor-cu12==2.2.0",
+    "gpu4pyscf-cuda12x>=1.5.1",
+    "pyyaml>=6.0.3",
+    "rdkit>=2025.9.3",
+    "sella>=2.3.5",
 ]
 
 [project.scripts]
 calc_redox = "redox.scripts.calc_redox:main"
+
+[project.optional-dependencies]
+mace = [
+    "mace-torch>=0.3.14",
+]
 
 [tool.setuptools]
 packages = []

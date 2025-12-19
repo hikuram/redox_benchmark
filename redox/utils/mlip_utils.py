@@ -3,7 +3,6 @@ from types import SimpleNamespace
 
 import numpy as np
 import ase.io
-import torch
 from ase import Atoms, units
 from sella import Sella
 from pyscf import gto, symm
@@ -19,6 +18,7 @@ def optimize_geometry(
     config: dict,
     outputfile: str = "opt.xyz",
 ) -> dict:
+    import torch
     """Optimize geometry and calculate frequencies."""
     if config is None:
         config = {}
