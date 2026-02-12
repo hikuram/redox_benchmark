@@ -154,7 +154,7 @@ def build_method(config: dict):
     disp = config.get("disp", None)
     grids = config.get("grids", {"atom_grid": (99, 590)})
     nlcgrids = config.get("nlcgrids", {"atom_grid": (50, 194)})
-    verbose = config.get("verbose", 2)
+    verbose = config.get("verbose", 4)
     scf_conv_tol = config.get("scf_conv_tol", 1e-8)
     direct_scf_tol = config.get("direct_scf_tol", 1e-8)
     scf_max_cycle = config.get("scf_max_cycle", 50)
@@ -174,6 +174,7 @@ def build_method(config: dict):
     atom = config.get("inputfile", "mol.xyz")
     charge = config.get("charge", 0)
     spin = config.get("spin", None)
+    output = config.get("output", "pyscf.log")
 
     # build molecule
     mol = gto.M(
@@ -184,6 +185,7 @@ def build_method(config: dict):
         verbose=verbose,
         charge=charge,
         spin=spin,
+        output=output,
     )
     mol.build()
 
